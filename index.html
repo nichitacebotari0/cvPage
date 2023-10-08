@@ -1,8 +1,84 @@
+<!DOCTYPE html>
 <html>
-    <head>
 
-    </head>
-    <body>
-        
-    </body>
+<head>
+    <link rel="stylesheet" href="tailwind.css" />
+    <script type="text/javascript">
+        function isDarkMode() {
+            return localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        }
+
+        // On page load or when changing themes, in `head` to avoid FOUC
+        if (isDarkMode()) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Whenever the user explicitly toggles dark mode
+        function toggleDarkMode() {
+            console.log("toggling");
+            if (isDarkMode()) {
+                localStorage.theme = 'light';
+                document.documentElement.classList.remove('dark');
+            }
+            else {
+                localStorage.theme = 'dark';
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        // Whenever we want to respect the OS preference
+        function removeDarkModePreference() {
+            localStorage.removeItem('theme')
+        }
+    </script>
+</head>
+
+<body class="bg-neutral-100 dark:bg-neutral-900 dark:text-neutral-300 transition-colors duration-700 font-serif">
+    <nav class="flex w-full fixed top-0 h-14 p-2.5 bg-neutral-200 dark:bg-neutral-800 ">
+        <h1 class="text-2xl duration-0 dark:text-neutral-300 text-black">
+            Nichita Cebotari
+        </h1>
+        <div class="ml-auto py-1.5">
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" value="" class="sr-only peer" onchange="toggleDarkMode()" id="darkModeToggle">
+                <div class="w-11 h-6 bg-gray-200 peer
+                peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-500 dark:peer-focus:ring-neutral-200 rounded-full  
+                dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute 
+                after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full 
+                after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-neutral-800"></div>
+            </label>
+        </div>
+    </nav>
+
+    <!-- gap for fixed navbar -->
+    <div class="w-full mt-14 h-14 text-center">
+    </div>
+
+    <h2 class="text-3xl text-center">
+        Projects
+    </h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 content-between w-full max-w-7xl mx-auto p-1">
+        <div class="flex-col rounded-md bg-neutral-200 dark:bg-neutral-700 p-1">
+            <img class="max-w-xl" src="" />
+            <h4 class="text-lg underline">Fangs builder v1</h4>
+            <div class="flex flex-wrap"> 
+                <div class="bg-neutral-300 dark:bg-neutral-600 rounded-full p-1 m-1">SolidJs</div>
+                <div class="bg-neutral-300 dark:bg-neutral-600 rounded-full p-1 m-1">Azure</div>
+            </div>
+            <p>
+                Description
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // initialise the dark mode toggle 
+        if (isDarkMode())
+            document.getElementById("darkModeToggle").checked = true;
+
+    </script>
+</body>
+
 </html>
