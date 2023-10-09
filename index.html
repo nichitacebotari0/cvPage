@@ -60,15 +60,28 @@
         Projects
     </h2>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 content-between w-full max-w-7xl mx-auto p-1">
-        <div class="flex-col rounded-md bg-neutral-200 dark:bg-neutral-700 p-1">
-            <img class="max-w-xl" src="" />
-            <h4 class="text-lg underline">Fangs builder v1</h4>
-            <div class="flex flex-wrap"> 
-                <div class="bg-neutral-300 dark:bg-neutral-600 rounded-full p-1 m-1">SolidJs</div>
-                <div class="bg-neutral-300 dark:bg-neutral-600 rounded-full p-1 m-1">Azure</div>
+        <div class="flex-col rounded-md bg-neutral-200 dark:bg-neutral-700 px-2 py-1">
+            <img class="" src="img/FangsBuilder1Example.png" />
+            <h4 class="text-lg"><a target="_blank" href="https://fangsbuilder.azureedge.net/"
+                    class="underline">Fangs Builder</a></h4>
+
+            <div class="flex flex-wrap text-gray-600 dark:text-gray-300 text-sm">
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">SolidJs</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">TailwindCSS</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Azure Storage</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Github Actions</div>
             </div>
-            <p>
-                Description
+            <p class="max-h-28 overflow-y-clip overflow-ellipsis">
+                My first foray into the world of front-end dev. This is a project to make it possible to people to share
+                their favorite build configurations for an indie game called Fangs -
+                think of website like mobafire, op.gg, dotabuilds, icyveins, etc. People could compose a build on the website, 
+                then just click a button and get a shareable link that would show others the build. 
+                The UI was made to be as similar as possible to the in-game functionality at the time.
+                <br/>I chose Solid Js because it seemed like a great framework without too much bloat and primegean made a
+                video on it as well. I also was not planning on having a backend so it just made sense.
+                <br/>Hosted in Azure Storage using the Static Website feature because it's very cheap,
+                with deployment being done automatically using github Actions as they offer free build agents for open
+                source projects.
             </p>
         </div>
     </div>
