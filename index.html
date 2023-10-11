@@ -34,11 +34,23 @@
         }
     </script>
 </head>
+<!-- 
+Pallette #1:
+    Light: bg-neutral-100 bg-neutral-200 text-black        text-gray-600
+    Dark:  bg-neutral-900 bg-neutral-700 text-neutral-300  text-gray-300
+
+Palettes:
+    Brown->Beige        https://colorhunt.co/palette/8e806ac3b091e4cda7ffe6bc
+    Grey->Beige         https://colorhunt.co/palette/352f445c5470b9b4c7faf0e6
+    Navy->Blue->Beige   https://colorhunt.co/palette/2e43744b527e7c81ade5c3a6
+    Black->Navy->Teal   
+
+-->
 
 <body class="bg-neutral-100 dark:bg-neutral-900 dark:text-neutral-300 transition-colors duration-700 font-serif">
     <nav class="flex w-full fixed top-0 h-14 p-2.5 bg-neutral-200 dark:bg-neutral-800 ">
         <h1 class="text-2xl duration-0 dark:text-neutral-300 text-black">
-            Nichita Cebotari
+            <a href="index.html">Nichita Cebotari</a>
         </h1>
         <div class="ml-auto py-1.5">
             <label class="relative inline-flex items-center cursor-pointer">
@@ -60,13 +72,15 @@
         Projects
     </h2>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 content-between w-full max-w-7xl mx-auto p-1">
+
         <div class="flex-col rounded-md bg-neutral-200 dark:bg-neutral-700 px-2 py-1">
             <img class="" src="img/FangsBuilder1Example.png" />
-            <h4 class="text-lg"><a target="_blank" href="https://fangsbuilder.azureedge.net/"
-                    class="underline">Fangs Builder</a></h4>
+            <h4 class="text-lg"><a target="_blank" href="https://fangsbuilder.azureedge.net/" class="underline">Fangs
+                    Builder</a></h4>
 
             <div class="flex flex-wrap text-gray-600 dark:text-gray-300 text-sm">
                 <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">SolidJs</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Jsx</div>
                 <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">TailwindCSS</div>
                 <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Azure Storage</div>
                 <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Github Actions</div>
@@ -74,14 +88,46 @@
             <p class="max-h-28 overflow-y-clip overflow-ellipsis">
                 My first foray into the world of front-end dev. This is a project to make it possible to people to share
                 their favorite build configurations for an indie game called Fangs -
-                think of website like mobafire, op.gg, dotabuilds, icyveins, etc. People could compose a build on the website, 
-                then just click a button and get a shareable link that would show others the build. 
+                think of website like mobafire, op.gg, dotabuilds, icyveins, etc. People could compose a build on the
+                website,
+                then just click a button and get a shareable link that would show others the build.
                 The UI was made to be as similar as possible to the in-game functionality at the time.
-                <br/>I chose Solid Js because it seemed like a great framework without too much bloat and primegean made a
+                <br />I chose Solid Js because it seemed like a great framework without too much bloat and primegean
+                made a
                 video on it as well. I also was not planning on having a backend so it just made sense.
-                <br/>Hosted in Azure Storage using the Static Website feature because it's very cheap,
+                <br />Hosted in Azure Storage using the Static Website feature because it's very cheap,
                 with deployment being done automatically using github Actions as they offer free build agents for open
                 source projects.
+            </p>
+        </div>
+
+        <div class="flex-col rounded-md bg-neutral-200 dark:bg-neutral-700 px-2 py-1">
+            <img class="" src="img/FangsBuilder1Example.png" />
+            <h4 class="text-lg">
+                <a target="_blank" href="" class="underline">Fangs Builder v2</a>
+            </h4>
+
+            <div class="flex flex-wrap text-gray-600 dark:text-gray-300 text-sm">
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Angular</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">ASP.NET Core WebApi</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">C#</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">TypeScript</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Terraform</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Github Actions</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Azure cdn</div>
+                <div class="bg-gray-300 dark:bg-gray-600 rounded-full px-1 py-0.5 m-1">Azure Storage</div>
+
+            </div>
+            <p class="max-h-28 overflow-y-clip overflow-ellipsis">
+                An iteration on the previous Fangs Builder project. This time with a backend.
+                <br /> Supports features such as: OAuth2 Discord(checks role and issue JWT), Persisting Builds,
+                Voting on Builds, Admin page for data entry/edit, Map Browser/Drawing Tool.
+                <br /> Front End made using Angular and Typescript and hosted in Azure Storage Static Websites, served
+                through Azure CDN,
+                UI infrastructure provisioned using terraform and deployment done with Github Actions.
+                <br /> Backend is a C# ASP.NET Core Web Api hosted on a ubuntu VM in azure, configuration and deployment
+                done by manually sshing into the machine for experimentation: installed nginx and proxied to the
+                manually deployed api.
             </p>
         </div>
     </div>
