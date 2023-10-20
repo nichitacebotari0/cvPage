@@ -18,14 +18,14 @@ jobs:
       - name: update tailwindcss
         uses: ZoeyVid/tailwindcss-update@main
         with:
-            input: src/input.css
-            output: src/tailwind.css
+            input: ./input.css
+            output: ./tailwind.css
             params: "--minify"
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: "src/"
+          path: "./"
 
   deploy:
     runs-on: ubuntu-latest
