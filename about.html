@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="tailwind.css" />
+    <script type="text/javascript">
+        function isDarkMode() {
+            return localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        }
+
+        // On page load or when changing themes, in `head` to avoid FOUC
+        if (isDarkMode()) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Whenever the user explicitly toggles dark mode
+        function toggleDarkMode() {
+            console.log("toggling");
+            if (isDarkMode()) {
+                localStorage.theme = 'light';
+                document.documentElement.classList.remove('dark');
+            }
+            else {
+                localStorage.theme = 'dark';
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        // Whenever we want to respect the OS preference
+        function removeDarkModePreference() {
+            localStorage.removeItem('theme')
+        }
+    </script>
+</head>
+<!-- 
+Pallette #1:(CURRENT)
+    Light: bg-neutral-100 bg-neutral-200 text-black        text-gray-600
+    Dark:  bg-neutral-900 bg-neutral-700 text-neutral-300  text-gray-300
+
+Palettes:
+    Brown->Beige        https://colorhunt.co/palette/8e806ac3b091e4cda7ffe6bc
+    Grey->Beige         https://colorhunt.co/palette/352f445c5470b9b4c7faf0e6
+    Navy->Blue->Beige   https://colorhunt.co/palette/2e43744b527e7c81ade5c3a6
+    Black->Navy->Teal   
+
+-->
+
+<body class="bg-neutral-100 dark:bg-neutral-900 dark:text-neutral-300 transition-colors duration-700 font-serif">
+    <nav class="flex w-full fixed top-0 h-14 p-2.5 bg-neutral-200 dark:bg-neutral-800 ">
+        <h1 class="text-2xl duration-0 dark:text-neutral-300 text-black">
+            <a href="index.html">Nichita Cebotari</a>
+        </h1>
+        <div class="ml-auto py-1.5">
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" value="" class="sr-only peer" onchange="toggleDarkMode()" id="darkModeToggle">
+                <div class="w-11 h-6 bg-gray-200 peer
+                peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-500 dark:peer-focus:ring-neutral-200 rounded-full  
+                dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute 
+                after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full 
+                after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-neutral-800"></div>
+            </label>
+        </div>
+    </nav>
+
+    <!-- gap for fixed navbar -->
+    <div class="w-full mt-14 h-14 text-center">
+    </div>
+
+    <h2 class="text-3xl text-center">
+        About
+    </h2>
+
+
+<script>
+        // initialise the dark mode toggle 
+        if (isDarkMode())
+            document.getElementById("darkModeToggle").checked = true;
+
+    </script>
+</body>
+
+</html>
